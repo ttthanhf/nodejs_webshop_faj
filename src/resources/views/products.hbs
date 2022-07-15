@@ -1,0 +1,42 @@
+<div class="products-container">
+    <div class="title">
+        <h1>Products</h1>
+    </div>
+    <div class="product-container">
+        {{#each product}}
+        <div class="product">
+            <a href="">
+                <div class="product-wrapper-1">
+                    <div class="img-product">
+                        <img src="/img/products/{{this.image}}">
+                    </div>
+                    <div class="title-product">
+                        <span>{{this.title}}</span>
+                    </div>
+                    <div class="description-product">
+                        <span>{{this.description}}</span>    
+                    </div><br>
+                    <div class="price-product">
+                        <span style="color:green">{{this.price}} $</span>    
+                    </div>
+                </div>
+            </a>
+            <div class="product-wrapper-2">
+                <div class="choose-product">
+                    <a href="">
+                        <div class="like-product">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                    </a>
+                    <a href="/products/{{this.id}}/addtocart">
+                        <div class="cart-product">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<script src="/js/js.js"></script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="header">
+        <div class="blank-header">
+                <a href="/fb"><i class="fa_header fa-brands fa-facebook"></i></a>
+                <a href="/instagram"><i class="fa_header fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="top-header">
+            <div class="logo">
+                <img src="./">
+                <span>FAJ</span>
+            </div>
+            <ul>
+                <il>
+                    <a href="/likes"><i class="fa-solid fa-heart"></i></a>
+                </il>
+                <il>
+                    <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                {{#if IsLoggedIn}}
+                <il>
+                    <a href="/user"><span>Hello, {{username}} !</span></a>
+                </il>
+                {{#if isStaff}}
+                <il>
+                    <a href="/staff">Staff</a>
+                </il>
+                {{/if}}
+                <il>
+                    <a href="/logout">Logout</a>
+                </il>
+                {{else}}
+                <il>
+                    <a href="/login">Login</a>
+                </il>
+                <il>
+                    <a href="/register">Register</a>
+                </il>
+                {{/if}}
+            </ul>
+        </div>
+        <br>
+        <div class="mid-header">
+            <ul>
+                <il>
+                    <a href="/">Home</a>
+                </il>
+                <il>
+                    <a href="/products">Products</a>
+                </il>
+                <il>
+                    <a href="/news">News</a>
+                </il>
+                <il>
+                    <a href="/contact">Contact</a>
+                </il>
+            </ul>
+        </div>
+        <hr><br>
+    </div>
+
+    <div class="main">
+    {{{body}}}
+    </div>
+    <div class="footer">
+        <div class="author">
+            <span>This project is made and owned by <a href="https://www.facebook.com/3T520L/" style="color: white">Tran Tan Thanh</a></span>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="Home">
+        <a href="/">Home</a>
+    </div>
+    <div class="register-container">
+        <div class="register">
+            <div class="title">
+                <span>Register</span><br><br>
+            </div>
+            <form method="post" class="form">
+                <span>Username</span><br>
+                <input type="text" name="username" placeholder="Username" required="required" autocomplete="off"><br>
+                <span>Password</span><br>
+                <input type="password" name="password" placeholder="Password"  required="required" autocomplete="off"><br>
+                <span>Retype password</span><br>
+                <input type="password" name="retypepassword" placeholder="RetypePassword"  required="required" autocomplete="off"><br>
+                {{#if successful}}
+                <span style="color: green">{{successful}}</span><br>
+                {{/if}}
+                {{#if error_label}}
+                <span style="color: red">{{error_label}}</span><br>
+                {{/if}}
+                <input type="submit" value="Submit" class="btn_sbm"><br><br>
+                <span>Already have an account ?</span>
+                <span><a href="/login">Sign in now !</a></span><br><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

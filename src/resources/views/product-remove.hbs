@@ -1,0 +1,42 @@
+<div class="remove-container">
+    <h2>Remove product</h2><br>
+    <span><strong style="color: red">!!! Warning !!!</strong> please be carefull what are you doing</span><br><br><br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each listProduct}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.title}}</td> 
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.image}}</td>
+                <td>{{this.link}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br><br>
+
+    {{#if successful}}
+    <span style="color: green">{{successful}}</span><br>
+    {{/if}}
+    {{#if error}}
+    <span style="color: red">{{error}}</span><br>
+    {{/if}}
+    <form method="post">
+        <span>Enter ID product: </span>
+        <input type="text" name="id_product" required="required" >
+        <input type="submit" value="Submit">
+    </form>
+</div>

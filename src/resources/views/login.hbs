@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div class="Home">
+        <a href="/">Home</a>
+    </div>    
+    <div class="login-container">
+        <div class="login">
+            <div class="title">
+                <span>Login</span><br><br>
+            </div>
+            {{#if needlogin_label}}
+            <span id="rq" style="color: red">{{needlogin_label}}</span><br><br>
+            {{/if}}
+            <form method="post" class="form">
+                <span>Username</span><br>
+                <input type="text" name="username" placeholder="Username" required="required" autocomplete="off"><br><br>
+                <span>Password</span><br>
+                <input type="password" name="password" placeholder="Password"  required="required" autocomplete="off"><br>
+                {{#if error_label}}
+                <span id="e" style="color: red">{{error_label}}</span><br>
+                {{/if}}
+                <input type="submit" value="Submit" class="btn_sbm"><br><br>
+                <span>Don't have account ?</span>
+                <span><a href="/register">Sign up now !</a></span><br><br>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<div class="create-container">
+    <h2>Create product</h2><br>
+    <table>
+        <thead>
+            <th>Name image</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            {{#each listImage}}
+            <tr>
+                <td>{{this}}</td>
+                <td>
+                    <img src="/img/products/{{this}}" style="width: 40px; height: 30px;">
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br><br>
+    {{#if successful}}
+    <span style="color: green">{{successful}}</span><br>
+    {{/if}}
+    {{#if error}}
+    <span style="color: red">{{error}}</span><br>
+    {{/if}}
+    <fieldset style="width: 30px;">
+        <legend>Set up</legend>
+        <form method="post" id="text_form">
+            <span>Name product:</span>
+            <input type="text" name="name_product" autocomplete="off"><br><br>
+            <span>Title product:</span>
+            <input type="text" name="title_product" autocomplete="off"><br><br>
+            <span>Description product:</span>
+            <input type="text" name="description_product" autocomplete="off"><br><br>
+            <span>Price product: </span>
+            <input type="text" name="price_product" autocomplete="off"><br><br>
+            <span>Img product: </span>
+            <input type="text" name="img_product" autocomplete="off"><br><br>
+            <span>Link product: </span>
+            <input type="text" name="link_product" autocomplete="off"><br><br><br>
+            <input type="submit" value="Submit">
+        </form><br>
+    </fieldset><br><br>
+    {{#if upload_img_success}}
+    <span style="color: green">{{upload_img_success}}</span><br>
+    {{/if}}
+    <form action="/staff/upload-img-product" method="post" enctype="multipart/form-data">
+        <input type="file" name="img-product-upload" accept="image/*" /><br>
+        <input type="submit" value="Upload">
+    </form>
+    
+</div>
