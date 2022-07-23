@@ -19,12 +19,12 @@ class ProductsController {
         console.log(idProduct);
     }
     addToCart(req, res) {
-        queryCart.addToCart(req.session.idUser, req.params.id);
-        queryCart.countProductInCart(req.session.idUser, total => {
-            res.cookie('totalCart', total);
-            res.redirect(req.baseUrl);
+        queryCart.addToCart(req.session.idUser, req.params.id, function() {
+            queryCart.countProductInCart(req.session.idUser, total => {
+                res.cookie('totalCart', total);
+                res.redirect(req.baseUrl);
+            });
         });
-        
     }
 }
 
