@@ -39,14 +39,25 @@ body, html {
     .header .top-header ul il span {
       color: white;
       padding: 0px 15px;
-      font-size: 20px;
-      text-decoration: underline; }
+      font-size: 20px; }
     .header .top-header ul il a {
       color: white;
       padding: 0px 15px;
       font-size: 20px; }
       .header .top-header ul il a:hover {
         text-decoration: underline; }
+  .header .top-header .cart {
+    position: relative;
+    display: inline; }
+    .header .top-header .cart .noti-cart {
+      position: absolute;
+      top: 5px;
+      left: 30px; }
+      .header .top-header .cart .noti-cart span {
+        font-size: 12px;
+        background-color: red;
+        border-radius: 100%;
+        padding: 0 3px; }
 
 .header .mid-header {
   background-color: white;

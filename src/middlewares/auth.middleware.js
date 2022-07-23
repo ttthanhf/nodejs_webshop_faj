@@ -1,5 +1,5 @@
 const queryUser = require('../models/mysql_queryUser.model.js');
-
+const queryCart = require('../models/mysql_queryCart.model.js');
 function action(id) {
     
 }
@@ -19,6 +19,9 @@ class AuthMiddleware {
                 if(status) {
                     req.session.LoggedIn = true;
                     req.session.idUser = result; 
+                    queryCart.countProductInCart(req.session.idUser, total => {
+                        res.cookie('totalCart', total);
+                    });
                 }
                 next();
             });

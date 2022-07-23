@@ -9,18 +9,22 @@ class ProductsController {
                 IsLoggedIn: req.session.LoggedIn,
                 username: req.session.username,
                 isStaff: req.session.isStaff,
+                totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
                 product: result
             });
         });
-        
     }
     getProduct(req, res) {
         const idProduct = req.params.id;
         console.log(idProduct);
     }
     addToCart(req, res) {
-        queryCart.addToCart(req.session.idUser, req.params.id)
-        res.redirect(req.baseUrl)
+        queryCart.addToCart(req.session.idUser, req.params.id);
+        queryCart.countProductInCart(req.session.idUser, total => {
+            res.cookie('totalCart', total);
+            res.redirect(req.baseUrl);
+        });
+        
     }
 }
 

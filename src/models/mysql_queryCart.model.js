@@ -1,6 +1,5 @@
 const id = require("../utils/generateid.js");
 const db = require('../configs/mysql.js');
-const queryProduct = require('./mysql_queryProduct.model.js');
 
 class QueryCart {
     addToCart(user_id, product_id) {
@@ -21,6 +20,11 @@ class QueryCart {
     }
     removeProductInCart(user_id, product_id) {
         db.query('DELETE FROM cart WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
+    }
+    countProductInCart(user_id, callback) {
+        db.query('SELECT * FROM cart WHERE user_id = ?', [user_id], function(err, result) {
+            callback(result.length);
+        });
     }
 }
 

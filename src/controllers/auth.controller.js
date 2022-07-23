@@ -62,7 +62,7 @@ class AuthController {
                     }
                     res.redirect('/');
                 })
-            })
+            });
         }
         else {
             res.render('login', flashMessage());
