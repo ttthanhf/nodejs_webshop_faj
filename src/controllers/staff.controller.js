@@ -2,6 +2,7 @@
 const random = require('../utils/generateid.js')
 const imageProducts = require('../utils/imageProducts.js');
 const queryProduct = require('../models/mysql_queryProduct.model.js');
+const queryUser = require('../models/mysql_queryUser.model.js');
 
 class StaffController {
     get(req, res) {
@@ -24,13 +25,21 @@ class StaffController {
             layout: 'staff-layout.hbs'
         });
     }
-    create(req, res) {
+    listCustomer(req, res) {
+        queryUser.getListCustomer(result => {
+            res.render('customer-list', { 
+                layout: 'staff-layout.hbs',
+                listCustomer: result
+            });
+        });
+    }
+    getProductCreate(req, res) {
         res.render('product-create', { 
             layout: 'staff-layout.hbs',
             listImage: imageProducts
         });
     }
-    create_action(req, res) {
+    actionProductCreate(req, res) {
         let nameProduct = req.body.name_product;
         let titleProductCreate = req.body.title_product;
         let descriptionProductCreate = req.body.description_product;
@@ -68,7 +77,7 @@ class StaffController {
             });
         }
     }
-    change(req, res) {
+    getProductChange(req, res) {
         //get list of products
         queryProduct.getListProducts(result => {
             res.render('product-change', {
@@ -77,7 +86,7 @@ class StaffController {
             });
         });
     }
-    change_action(req, res) {
+    actionChangeProduct(req, res) {
         let idProductChange = req.body.id_product;
         let radioProductChange = req.body.radio;
         let changeValue = req.body.change_value;
@@ -110,7 +119,7 @@ class StaffController {
             })
         }
     }
-    remove(req, res) {
+    getProductRemove(req, res) {
         //get list of products               
         queryProduct.getListProducts(result => {
             res.render('product-remove', {
@@ -119,7 +128,7 @@ class StaffController {
             });
         });
     }
-    remove_action(req, res) {
+    actionProductRemove(req, res) {
         let idProductRemove = req.body.id_product;
         if(idProductRemove) {
             queryProduct.isProductExistById(idProductRemove, status => {

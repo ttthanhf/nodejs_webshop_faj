@@ -1,0 +1,20 @@
+<div class="customer-list-container">
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </thead>
+        <tbody>
+            {{#each listCustomer}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.fullname}}</td>
+                <td>{{this.address}}</td>
+                <td>{{this.phone}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table><br><br>
+</div>

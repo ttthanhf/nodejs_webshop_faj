@@ -262,6 +262,19 @@ h1 {
     .main-staff .change-container table th {
       background-color: #d7c8c8; }
 
+.customer-list-container {
+  margin: 50px 20px; }
+  .customer-list-container table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%; }
+    .customer-list-container table td, .customer-list-container table th {
+      border: 1px solid #000000;
+      text-align: left;
+      padding: 8px; }
+    .customer-list-container table th {
+      background-color: #d7c8c8; }
+
 .cart-container .item-wrapper {
   display: grid;
   margin: 20px 30px;

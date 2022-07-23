@@ -56,6 +56,12 @@ class QueryUser {
             callback(results[0])
         });
     }
+    getListCustomer(callback) {
+        const sql = "SELECT * FROM nodejs_webshop.user_account AS acc INNER JOIN nodejs_webshop.user_profile AS pfl ON acc.id = pfl.id WHERE role = 'customer'";
+        db.query(sql, function(err, results) {
+            callback(results)
+        });
+    }
 }
 
 module.exports = new QueryUser;
