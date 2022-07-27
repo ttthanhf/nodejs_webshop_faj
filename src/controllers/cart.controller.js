@@ -17,13 +17,10 @@ class CartController {
         
     }
     delete(req, res) {
-        const product_id = req.params.id;
-        queryCart.removeProductInCart(req.session.idUser, product_id);
+        queryCart.removeProductInCart(req.session.idUser, req.params.id);
         queryCart.countProductInCart(req.session.idUser, total => {
             res.cookie('totalCart', total);
-            res.redirect('/cart');
         });
-        
     }
 }
 

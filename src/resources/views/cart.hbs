@@ -21,25 +21,28 @@
     {{#each itemCart}}
     <div class="item-wrapper">
         <div class="checkbox column">
-            <input type="checkbox" id="checkbox-select" data-item-value="{{this.id}}">
+            <input type="checkbox" id="checkbox-select">
         </div>
         <div class="img column">
             <img src="/img/products/{{this.image}}" style="width: 80px; height: 60px;">
         </div>
         <div class="title column">{{this.title}}</div>
         <div class="amount column">
-            <div class="btn-amount btn-amount-increase"><input type="button" value="▲" data-item-value="{{this.id}}" data-action="increase"></div>
+            <div class="btn-amount btn-amount-increase"><input type="button" value="▲" data-action="increase"></div>
             <div class="amount-value"><span>{{this.quantity}}</span></div>
-            <div class="btn-amount btn-amount-decrease"><input type="button" value="▼" data-item-value="{{this.id}}" data-action="decrease"></div>
+            <div class="btn-amount btn-amount-decrease"><input type="button" value="▼" data-action="decrease"></div>
         </div>
         <div class="price column">{{this.price}} $</div>
         <div class="total-price column">{{multi2number this.quantity this.price}} $</div>
         <div class="remove column">
-            <form action="/cart/{{this.id}}/delete" method="POST">
-                <button type="submit" class="button-hide">
+            {{!-- <form action="/cart/{{this.id}}/delete" method="POST">
+                <button type="submit" class="button-hide" data-item-value="{{this.id}}">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
-            </form>
+            </form> --}}
+            <button type="submit" class="button-hide" data-item-value="{{this.id}}">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
         </div>
     </div>
     {{/each}}
@@ -63,5 +66,17 @@
     {{else}}
     <div class="noti">You have no items in your shopping cart</div>
     {{/if}}
+    <script>
+        document.querySelectorAll(".button-hide").forEach(element => element.addEventListener("click", function() {
+            let url = "/cart/" + this.getAttribute("data-item-value") + "/delete";
+            fetch(url)
+            .then(setTimeout(function() {
+                document.querySelector(".noti-cart #Text").innerText = document.cookie.split("=")[1];
+            },10))
+            .then(setTimeout(function() {
+                window.location.href = "cart";
+            },10))
+        }));
+    </script>
     <script src="/js/cart.js"></script>
 </div>

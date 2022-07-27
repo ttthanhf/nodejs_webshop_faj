@@ -213,7 +213,7 @@ body, html {
             a {
                 color: black;
                 &:hover {
-                    color: black;
+                    color: rgb(59, 55, 70);
                 }
                 .product-wrapper-1 {
                     // border: 1px solid black;
@@ -249,20 +249,20 @@ body, html {
                         display: flex;
                         justify-content: flex-start;
                         font-size: 20px;
-                        .like-product {
-                            border: 1px solid rgb(163, 163, 163);
+                        .item-choose {
                             width: 119px;
                             text-align: center;
                             padding: 3px 0;
+                            cursor: pointer;
+                        }
+                        .like-product {
+                            border: 1px solid rgb(163, 163, 163);
                             &:hover {
                                 color: red;
                             }
                         }
                         .cart-product {
                             border: 1px solid rgb(186, 186, 186);
-                            width: 119px;
-                            text-align: center;
-                            padding: 3px 0;
                             &:hover {
                                 color: green;
                             }
