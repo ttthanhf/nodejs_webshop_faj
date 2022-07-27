@@ -5,17 +5,22 @@
             <th>Name image</th>
             <th>Image</th>
         </thead>
-        <tbody>
-            {{#each listImage}}
-            <tr>
-                <td>{{this}}</td>
-                <td>
-                    <img src="/img/products/{{this}}" style="width: 40px; height: 30px;">
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table><br><br>
+    </table>
+    <div class="table-container">
+        <table>
+            <tbody>
+                {{#each listImage}}
+                <tr>
+                    <td>{{this}}</td>
+                    <td>
+                        <img src="/img/products/{{this}}" style="width: 40px; height: 30px;">
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table><br>
+    </div>
+    <br><br>
     {{#if successful}}
     <span style="color: green">{{successful}}</span><br>
     {{/if}}

@@ -227,16 +227,20 @@ h1 {
   margin: 50px 20px; }
   .main-staff .create-container input {
     width: 200px; }
+  .main-staff .create-container .table-container {
+    height: 400px;
+    overflow-y: scroll; }
   .main-staff .create-container table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 60%; }
+    width: 800px; }
     .main-staff .create-container table td, .main-staff .create-container table th {
       border: 1px solid #000000;
       text-align: left;
       padding: 8px; }
     .main-staff .create-container table th {
-      background-color: #d7c8c8; }
+      background-color: #d7c8c8;
+      width: 69.69%; }
 
 .main-staff .remove-container {
   margin: 50px 20px; }
