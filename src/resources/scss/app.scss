@@ -67,8 +67,8 @@ body, html {
             display: inline;
             .noti-cart {
                 position: absolute;
-                top: 5px;
-                left: 30px;
+                top: 0px;
+                left: 31px;
                 span {
                     font-size: 12px;
                     background-color: red;
@@ -399,7 +399,7 @@ h1 {
     .item-wrapper {
         display: grid;
         margin: 20px 30px;
-        grid-template-columns: 80px 120px 200px 20px 2000px;
+        grid-template-columns: 80px 120px 200px 50px 500px 200px 500px;
         border: 1px solid black;
         .column {
             margin: auto;

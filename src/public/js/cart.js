@@ -10,5 +10,4 @@ csa.onclick = function() {
 cs.forEach(select => select.addEventListener('click', function() {
     csa.checked = cs.length == document.querySelectorAll('#checkbox-select:checked').length;
 }));
-
 //

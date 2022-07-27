@@ -9,6 +9,15 @@
         </div>
     </div>
     {{#if itemCart}}
+    <div class="item-wrapper">
+        <div class="checkbox column"></div>
+        <div class="img column">Image</div>
+        <div class="title column">Title</div>
+        <div class="amount column">Amount</div>
+        <div class="price column">Price</div>
+        <div class="total-price column">Total Price</div>
+        <div class="remove column">Remove</div>
+    </div>
     {{#each itemCart}}
     <div class="item-wrapper">
         <div class="checkbox column">
@@ -19,6 +28,8 @@
         </div>
         <div class="title column">{{this.title}}</div>
         <div class="amount column">{{this.quantity}}</div>
+        <div class="price column">{{this.price}} $</div>
+        <div class="total-price column">{{this.quantity}} + {{this.price}}</div>
         <div class="remove column">
             <form action="/cart/{{this.id}}/delete" method="POST">
                 <button type="submit" class="button-hide">
@@ -28,6 +39,12 @@
         </div>
     </div>
     {{/each}}
+    <div class="total-container">
+        <div class="coupon">
+            <span>Coupon code</span>
+            <input type="text" name="discount" id="discount">
+        </div>
+    </div>
     {{else}}
     <div class="noti">You have no items in your shopping cart</div>
     {{/if}}
