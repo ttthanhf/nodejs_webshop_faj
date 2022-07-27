@@ -281,7 +281,7 @@ h1 {
 .cart-container .item-wrapper {
   display: grid;
   margin: 20px 30px;
-  grid-template-columns: 80px 120px 200px 50px 500px 200px 500px;
+  grid-template-columns: 80px 120px 200px 50px 500px 200px 400px;
   border: 1px solid black; }
   .cart-container .item-wrapper .column {
     margin: auto;
@@ -289,11 +289,24 @@ h1 {
   .cart-container .item-wrapper .checkbox {
     transform: scale(2); }
 
+.cart-container .btn-amount input {
+  border: none;
+  color: #8a8a8a;
+  background-color: white;
+  font-size: 14px;
+  width: 30px;
+  height: 14px; }
+  .cart-container .btn-amount input:hover {
+    color: #3e3e3e; }
+
 .cart-container .button-hide {
   background-color: white;
   border: none;
   box-shadow: none;
   cursor: pointer; }
+
+.cart-container .amount-value {
+  text-align: center; }
 
 .cart-container .noti {
   text-align: center;

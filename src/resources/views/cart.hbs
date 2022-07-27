@@ -21,13 +21,17 @@
     {{#each itemCart}}
     <div class="item-wrapper">
         <div class="checkbox column">
-            <input type="checkbox" id="checkbox-select">
+            <input type="checkbox" id="checkbox-select" data-item-value="{{this.id}}">
         </div>
         <div class="img column">
             <img src="/img/products/{{this.image}}" style="width: 80px; height: 60px;">
         </div>
         <div class="title column">{{this.title}}</div>
-        <div class="amount column">{{this.quantity}}</div>
+        <div class="amount column">
+            <div class="btn-amount btn-amount-increase"><input type="button" value="▲" data-item-value="{{this.id}}" data-action="increase"></div>
+            <div class="amount-value"><span>{{this.quantity}}</span></div>
+            <div class="btn-amount btn-amount-decrease"><input type="button" value="▼" data-item-value="{{this.id}}" data-action="decrease"></div>
+        </div>
         <div class="price column">{{this.price}} $</div>
         <div class="total-price column">{{multi2number this.quantity this.price}} $</div>
         <div class="remove column">

@@ -164,14 +164,12 @@ class StaffController {
         }
     }
     upload_img_action(req, res) {
-        res.render('product-create', { 
-            layout: 'staff-layout.hbs',
-            upload_img_success: 'Upload imgage Success! Wait 2s to return !',
-            listImage: imageProducts
-        });
-        setTimeout(function(){
-            res.redirect(req.baseUrl);
-        }, 2000);
+        // res.render('product-create', { 
+        //     layout: 'staff-layout.hbs',
+        //     upload_img_success: 'Upload imgage Success! Wait 2s to return !',
+        //     listImage: imageProducts
+        // });
+        res.redirect(req.baseUrl);
     }
 }
 
