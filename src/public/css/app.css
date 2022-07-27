@@ -75,16 +75,13 @@ body, html {
       .header .mid-header ul il a:hover {
         text-decoration: underline; }
 
-.footer .author {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+.footer {
   background-color: #4a4b4c;
   color: white;
-  text-align: center;
-  padding: 12px 0;
-  font-size: 12px; }
+  font-size: 12px;
+  padding: 12px 20px; }
+  .footer .author {
+    text-align: center; }
 
 .introduciton {
   margin-bottom: 50px; }
@@ -301,7 +298,7 @@ h1 {
 .cart-container .noti {
   text-align: center;
   margin-top: 100px;
-  margin-bottom: 400px;
+  margin-bottom: 230px;
   font-size: 50px;
   color: #999999; }
 
@@ -309,3 +306,22 @@ h1 {
   margin: 20px 65px; }
   .cart-container .cart-main .checkbox input {
     transform: scale(1.5); }
+
+.cart-container .total-container {
+  width: 404px;
+  border: 1px solid black;
+  padding: 30px 10px;
+  margin: 20px 0;
+  margin-left: 70%; }
+  .cart-container .total-container div {
+    padding: 10px 0; }
+  .cart-container .total-container #btn-cp-check {
+    color: #454545;
+    border: none;
+    width: 80px;
+    height: 22px;
+    background-color: #dfefdf; }
+    .cart-container .total-container #btn-cp-check:hover {
+      color: green;
+      background-color: #bfe9bf;
+      cursor: pointer; }

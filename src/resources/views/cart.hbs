@@ -29,7 +29,7 @@
         <div class="title column">{{this.title}}</div>
         <div class="amount column">{{this.quantity}}</div>
         <div class="price column">{{this.price}} $</div>
-        <div class="total-price column">{{this.quantity}} + {{this.price}}</div>
+        <div class="total-price column">{{multi2number this.quantity this.price}} $</div>
         <div class="remove column">
             <form action="/cart/{{this.id}}/delete" method="POST">
                 <button type="submit" class="button-hide">
@@ -41,8 +41,19 @@
     {{/each}}
     <div class="total-container">
         <div class="coupon">
-            <span>Coupon code</span>
+            <span>Coupon code :</span>
             <input type="text" name="discount" id="discount">
+            <input type="button" value="check" id="btn-cp-check">
+        </div>
+        <div class="shipping-fee">
+            <span id="shipping-text">Shipping :</span>
+            <span id="shipping-value">10</span>
+            <span id="currency">$</span>
+        </div>
+        <div class="total-price">
+            <span id="total-price-text">Total price:</span>
+            <span id="total-price-cart-value">{{getTotalPriceAllItemCartAndShipping itemCart 10}}</span>
+            <span id="currency">$</span>
         </div>
     </div>
     {{else}}

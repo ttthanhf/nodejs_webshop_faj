@@ -11,7 +11,7 @@ class QueryCart {
                 db.query('INSERT INTO cart(id, user_id, product_id, quantity) VALUES (?,?,?,?)', [id.IdCart(), user_id, product_id, 1]);
             }
         });
-        setTimeout(callback, 5);
+        setTimeout(callback, 10);
     }
     getListCartByUser_Id(user_id, callback) {
         const sql = 'SELECT prd.*, c.quantity FROM nodejs_webshop.products AS prd INNER JOIN nodejs_webshop.cart AS c ON prd.id = c.product_id WHERE c.user_id = ?'
