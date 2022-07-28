@@ -11,3 +11,14 @@ cs.forEach(select => select.addEventListener('click', function() {
     csa.checked = cs.length == document.querySelectorAll('#checkbox-select:checked').length;
 }));
 //
+
+document.querySelectorAll(".button-hide").forEach(element => element.addEventListener("click", function() {
+    let url = "/cart/" + this.getAttribute("data-item-value") + "/delete";
+    fetch(url)
+    .then(setTimeout(function() {
+        document.querySelector(".noti-cart #Text").innerText = document.cookie.split("=")[1];
+    },50))
+    .then(setTimeout(function() {
+        window.location.href = "cart";
+    },10))
+}));

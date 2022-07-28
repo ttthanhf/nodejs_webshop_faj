@@ -66,17 +66,5 @@
     {{else}}
     <div class="noti">You have no items in your shopping cart</div>
     {{/if}}
-    <script>
-        document.querySelectorAll(".button-hide").forEach(element => element.addEventListener("click", function() {
-            let url = "/cart/" + this.getAttribute("data-item-value") + "/delete";
-            fetch(url)
-            .then(setTimeout(function() {
-                document.querySelector(".noti-cart #Text").innerText = document.cookie.split("=")[1];
-            },10))
-            .then(setTimeout(function() {
-                window.location.href = "cart";
-            },10))
-        }));
-    </script>
     <script src="/js/cart.js"></script>
 </div>

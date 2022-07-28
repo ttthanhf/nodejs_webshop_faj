@@ -20,6 +20,7 @@ class CartController {
         queryCart.removeProductInCart(req.session.idUser, req.params.id);
         queryCart.countProductInCart(req.session.idUser, total => {
             res.cookie('totalCart', total);
+            res.redirect(req.baseUrl);
         });
     }
 }

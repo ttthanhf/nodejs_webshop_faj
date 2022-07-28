@@ -3,5 +3,5 @@ document.querySelectorAll(".cart-product").forEach(element => element.addEventLi
     fetch(url)
     .then(setTimeout(function() {
         document.querySelector(".noti-cart #Text").innerText = document.cookie.split("=")[1];
-    }, 20));
+    }, 50));
 }));
