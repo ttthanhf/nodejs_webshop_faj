@@ -46,15 +46,16 @@ class StaffController {
         let priceProduct = req.body.price_product;
         let imgProduct = req.body.img_product;
         let linkProduct = req.body.link_product;
-        if (nameProduct && titleProductCreate && priceProduct && imgProduct && linkProduct && descriptionProductCreate) {
+        let categoryProduct = req.body.category_select
+        if (nameProduct && titleProductCreate && priceProduct && imgProduct && linkProduct && descriptionProductCreate && categoryProduct) {
             queryProduct.isProductExistByName(nameProduct, status => {
                 if (status == false) {
 
                     //insert data into products
                     let idProductGenerator = random.IdProduct();
-                    queryProduct.insertProduct(idProductGenerator, nameProduct, titleProductCreate, descriptionProductCreate, priceProduct, imgProduct, linkProduct);
+                    queryProduct.insertProduct(idProductGenerator, nameProduct, titleProductCreate, descriptionProductCreate, priceProduct, imgProduct, linkProduct, categoryProduct);
 
-                    res.render('product-create', { 
+                    res.render('product-create', {
                         layout: 'staff-layout.hbs',
                         successful: "Create product success!",
                         listImage: imageProducts
@@ -88,14 +89,14 @@ class StaffController {
     }
     actionChangeProduct(req, res) {
         let idProductChange = req.body.id_product;
-        let radioProductChange = req.body.radio;
+        let productChangeType = req.body.change_fn;
         let changeValue = req.body.change_value;
         if(idProductChange) {
             queryProduct.isProductExistById(idProductChange, status => {
                 if (status) {
 
                     //update data in products
-                    queryProduct.updateProductById(idProductChange, radioProductChange, changeValue);
+                    queryProduct.updateProductById(idProductChange, productChangeType, changeValue);
 
                     //get list of products                    
                     queryProduct.getListProducts(result => {

@@ -1,6 +1,10 @@
 <div class="products-container">
     <div class="title">
-        <h1>Products</h1>
+        <h1>{{title_top}}</h1>
+    </div>
+    <div class="search-bar">
+        <input type="text" name="search-box" id="search-box" placeholder="Find">
+        <i class="fa-solid fa-magnifying-glass search-btn"></i>
     </div>
     <div class="product-container">
         {{#each product}}

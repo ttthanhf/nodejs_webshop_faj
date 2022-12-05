@@ -13,11 +13,19 @@ cs.forEach(select => select.addEventListener('click', function() {
 //
 
 document.querySelectorAll(".button-hide").forEach(element => element.addEventListener("click", function() {
-    let url = "/cart/" + this.getAttribute("data-item-value") + "/delete";
+    let url = "/cart/" + this.parentElement.parentElement.getAttribute("data-item-value") + "/delete";
     fetch(url)
     .then(setTimeout(function() {
         document.querySelector(".noti-cart #Text").innerText = document.cookie.split("=")[1];
     },50))
+    .then(setTimeout(function() {
+        window.location.href = "cart";
+    },10))
+}));
+
+document.querySelectorAll(".btn-amount input").forEach(element => element.addEventListener("click", function() {
+    let url = "/cart/" + this.parentElement.parentElement.parentElement.getAttribute("data-item-value") + "/" + this.getAttribute("data-action")
+    fetch(url)
     .then(setTimeout(function() {
         window.location.href = "cart";
     },10))

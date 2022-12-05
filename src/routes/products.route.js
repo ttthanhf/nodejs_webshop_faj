@@ -6,6 +6,5 @@ const productsController = require('../controllers/products.controller.js')
 
 router.get('/:id/addtocart', authMiddleware.loggedInRequirement, productsController.addToCart);
 router.get('/:id', productsController.getProduct);
-router.get('/', productsController.get);
 
 module.exports = router;

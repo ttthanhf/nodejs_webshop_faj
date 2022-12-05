@@ -55,7 +55,7 @@ class AuthController {
     getLogin(req, res) {
         if(req.session) {
             queryUser.getProfileById(req.session.idUser, result => {
-                req.session.username = result.nickname;
+                req.session.username = result.name;
                 queryUser.getRoleByUserId(req.session.idUser, roleUser => {
                     if(roleUser == "staff" || roleUser == "dev" || roleUser == "manager") {
                         req.session.isStaff = true;

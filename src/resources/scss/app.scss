@@ -11,49 +11,40 @@ body, html {
 }
 //main
 .header {
-    .blank-header {
-        display: flex;
-        justify-content: flex-start;
-        padding: 10px 0px;
-        background-color: rgb(81, 81, 81);
-        .fa_header { 
-            padding: 0 20px;
-            color: rgb(151, 151, 151);
-        }
-    }
     .top-header {
         .logo {
+            font-size: 20px;
             position: absolute;
-            left: 18px;
+            left: 50px;
             margin: 1.2% 0px;
-            color: white;   
+            color: rgb(0, 0, 0);   
         }
-        background-color: rgb(55, 54, 63);
+        background-color: rgb(244, 244, 244);
         display: flex;
         justify-content: flex-end;
         padding: 4px 30px;
         .fa-heart {
-            color: white;
+            color: rgb(0, 0, 0);
             &:hover {
-                color: rgb(179, 179, 179);
+                color: rgb(161, 88, 88);
             }
         }
         .fa-cart-shopping{
-            color: white;
+            color: rgb(0, 0, 0);
             &:hover {
-                color: rgb(179, 179, 179);
+                color: rgb(78, 98, 74);
             }
         }
         ul {
             padding: 20px 0px;
             il {
                 span {
-                    color: white;
+                    color: rgb(0, 0, 0);
                     padding: 0px 15px;
                     font-size: 20px;
                 }
                 a {
-                    color: white;
+                    color: rgb(0, 0, 0);
                     padding: 0px 15px;
                     font-size: 20px;
                     &:hover {
@@ -70,6 +61,7 @@ body, html {
                 top: 0px;
                 left: 31px;
                 span {
+                    color: white;
                     font-size: 12px;
                     background-color: red;
                     border-radius: 100%;
@@ -91,7 +83,7 @@ body, html {
             il {
                 a {
                     color: rgb(0, 0, 0);
-                    padding: 2px 70px;
+                    padding: 2px 100px;
                     font-size: 24px;
                     &:hover {
                         text-decoration: underline;
@@ -202,13 +194,24 @@ body, html {
         display: flex;
         justify-content: center;
     }
+    .search-bar {
+        text-align: center;
+        margin: 20px 0;
+        input {
+            font-size: 15px;
+            padding: 0 20px;
+            width: 500px;
+            height: 30px;
+            border-radius: 20px;
+        }
+    }
     .product-container {
         width: 100%;
         text-align: center;
         .product {
             border: 1px solid black;
             width: 240px;
-            margin: 40px 30px;
+            margin: 40px 20px;
             display: inline-block;
             a {
                 color: black;
@@ -218,7 +221,7 @@ body, html {
                 .product-wrapper-1 {
                     // border: 1px solid black;
                     width: 240px;
-                    height: 240px;
+                    height: 280px;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -226,8 +229,8 @@ body, html {
                     .img-product {
                         img {
                             margin-bottom: 10px;
-                            width: 180px;
-                            height: 110px;
+                            width: 170px;
+                            height: 120px;
                         }
                     }
                     .title-product {
@@ -238,7 +241,8 @@ body, html {
                     }
                     .description-product {
                         span {
-                            font-size: 16px;
+                            color: rgb(86, 86, 86);
+                            font-size: 15px;
                         }
                     }
                 }

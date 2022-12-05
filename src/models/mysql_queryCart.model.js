@@ -27,6 +27,12 @@ class QueryCart {
             callback(result.length);
         });
     }
+    increaseProductInCart(user_id, product_id, callback) {
+        db.query('UPDATE cart set quantity = quantity + 1 WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
+    }
+    decreaseProductInCart(user_id, product_id, callback) {
+        db.query('UPDATE cart set quantity = quantity - 1 WHERE user_id = ? AND product_id = ?', [user_id, product_id]);
+    }
 }
 
 module.exports = new QueryCart;

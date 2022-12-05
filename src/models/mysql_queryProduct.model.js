@@ -1,8 +1,18 @@
 const db = require('../configs/mysql.js');
 
 class QueryProduct {
+    getListJuices(callback) {
+        db.query("SELECT * FROM products WHERE category = ?",['juice'], function(err, results) {
+            callback(results);
+        });
+    }
     getListProducts(callback) {
         db.query("SELECT * FROM products", function(err, results) {
+            callback(results);
+        });
+    }
+    getListFruits(callback) {
+        db.query("SELECT * FROM products WHERE category = ?",['fruit'], function(err, results) {
             callback(results);
         });
     }
@@ -31,8 +41,8 @@ class QueryProduct {
             }
         });
     }
-    insertProduct(id, name, title, description, price, image, link) {
-        db.query("INSERT INTO products(id, name, title, description, price, image, link) VALUES (?,?,?,?,?,?,?)", [id, name, title, description, price, image, link]);
+    insertProduct(id, name, title, description, price, image, link, category) {
+        db.query("INSERT INTO products(id, name, title, description, price, image, link, category) VALUES (?,?,?,?,?,?,?,?)", [id, name, title, description, price, image, link, category]);
     }
     removeProductById(id) {
         db.query("DELETE FROM products WHERE id = ?", [id]);
@@ -53,6 +63,9 @@ class QueryProduct {
                 break;    
             case 'Link':
                 var sql_change = 'UPDATE products SET link = ? WHERE id = ?';
+                break;
+            case 'Category':
+                var sql_change = 'UPDATE products SET category = ? WHERE id = ?';
                 break;
         }
         db.query(sql_change, [change, id]);

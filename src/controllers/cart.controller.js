@@ -13,8 +13,11 @@ class CartController {
             });
         });
     }
-    cart_action(req, res) {
-        
+    increase(req, res) {
+        queryCart.increaseProductInCart(req.session.idUser, req.params.id);
+    }
+    decrease(req, res) {
+        queryCart.decreaseProductInCart(req.session.idUser, req.params.id);
     }
     delete(req, res) {
         queryCart.removeProductInCart(req.session.idUser, req.params.id);

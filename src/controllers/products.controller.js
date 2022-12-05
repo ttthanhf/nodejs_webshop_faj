@@ -3,14 +3,27 @@ const queryProduct = require('../models/mysql_queryProduct.model.js');
 const queryCart = require('../models/mysql_queryCart.model.js')
 
 class ProductsController {
-    get(req, res) {
-        queryProduct.getListProducts(result => {
+    getJuice(req, res) {
+        queryProduct.getListJuices(result => {
             res.render('products', {
                 IsLoggedIn: req.session.LoggedIn,
                 username: req.session.username,
                 isStaff: req.session.isStaff,
                 totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
-                product: result
+                product: result,
+                title_top: `Juices`
+            });
+        });
+    }
+    getFruit(req, res) {
+        queryProduct.getListFruits(result => {  
+            res.render('products', {
+                IsLoggedIn: req.session.LoggedIn,
+                username: req.session.username,
+                isStaff: req.session.isStaff,
+                totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                product: result,
+                title_top: `Fruits`
             });
         });
     }

@@ -24,9 +24,6 @@ class SiteController {
     contact(req, res) {
         res.render('contact', option(req));
     }
-    news(req, res) {
-        res.render('news', option(req));
-    }
 }
 
 module.exports = new SiteController;
