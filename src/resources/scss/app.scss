@@ -80,6 +80,7 @@ body, html {
             padding: 10px 0px;
             margin-bottom: 20px;
             border: 2px solid rgb(78, 78, 78);
+            border-radius: 20px;
             il {
                 a {
                     color: rgb(0, 0, 0);
@@ -197,12 +198,24 @@ body, html {
     .search-bar {
         text-align: center;
         margin: 20px 0;
+        -moz-user-select: none; //Firefox
+        -webkit-user-select: none; //Chrome, Safari, and Opera
+        -webkit-touch-callout: none; //Android and iOS
         input {
+            border: 1px solid rgb(129, 129, 129);
             font-size: 15px;
             padding: 0 20px;
             width: 500px;
             height: 30px;
-            border-radius: 20px;
+            border-radius: 15px;
+        }
+        i {
+            cursor: pointer;
+            color: rgb(129, 129, 129);
+            &:hover {
+                color: black;
+                transform: scale(1.1);
+            }
         }
     }
     .product-container {
@@ -210,8 +223,9 @@ body, html {
         text-align: center;
         .product {
             border: 1px solid black;
+            border-radius: 20px;
             width: 240px;
-            margin: 40px 20px;
+            margin: 50px 20px;
             display: inline-block;
             a {
                 color: black;
@@ -231,6 +245,7 @@ body, html {
                             margin-bottom: 10px;
                             width: 170px;
                             height: 120px;
+                            border-bottom: 1px solid black;
                         }
                     }
                     .title-product {
@@ -248,25 +263,26 @@ body, html {
                 }
             }
                 .product-wrapper-2 {
+                    margin-top: 2px;
                     .choose-product {
-                        width: 240px;
                         display: flex;
                         justify-content: flex-start;
                         font-size: 20px;
                         .item-choose {
-                            width: 119px;
+                            width: 100%;
                             text-align: center;
                             padding: 3px 0;
                             cursor: pointer;
+                            border: 1px solid rgb(163, 163, 163);
                         }
                         .like-product {
-                            border: 1px solid rgb(163, 163, 163);
+                            border-radius: 0 0 0 18px;
                             &:hover {
                                 color: red;
                             }
                         }
                         .cart-product {
-                            border: 1px solid rgb(186, 186, 186);
+                            border-radius: 0 0 18px 0;
                             &:hover {
                                 color: green;
                             }

@@ -1,6 +1,16 @@
 const db = require('../configs/mysql.js');
 
 class QueryProduct {
+    getListJuicesSearch(searchInfo, callback) {
+        db.query('SELECT * FROM products WHERE category = ? AND title LIKE \'%' + searchInfo + '%\'', ['Juice'], function(err, results) {
+            callback(results);
+        });
+    }
+    getListJuicesOrder(orderType, callback) {
+        db.query("SELECT * FROM products WHERE category = ? ORDER BY price " + orderType, ['juice'], function(err, results) {
+            callback(results);
+        });
+    }
     getListJuices(callback) {
         db.query("SELECT * FROM products WHERE category = ?",['juice'], function(err, results) {
             callback(results);
@@ -8,6 +18,16 @@ class QueryProduct {
     }
     getListProducts(callback) {
         db.query("SELECT * FROM products", function(err, results) {
+            callback(results);
+        });
+    }
+    getListFruitsSearch(searchInfo, callback) {
+        db.query('SELECT * FROM products WHERE category = ? AND title LIKE \'%' + searchInfo + '%\'', ['fruit'], function(err, results) {
+            callback(results);
+        });
+    }
+    getListFruitsOrder(orderType, callback) {
+        db.query("SELECT * FROM products WHERE category = ? ORDER BY price " + orderType, ['fruit'], function(err, results) {
             callback(results);
         });
     }

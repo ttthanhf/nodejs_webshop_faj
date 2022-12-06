@@ -4,28 +4,80 @@ const queryCart = require('../models/mysql_queryCart.model.js')
 
 class ProductsController {
     getJuice(req, res) {
-        queryProduct.getListJuices(result => {
-            res.render('products', {
-                IsLoggedIn: req.session.LoggedIn,
-                username: req.session.username,
-                isStaff: req.session.isStaff,
-                totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
-                product: result,
-                title_top: `Juices`
+        if(req.query.priceOrder) {
+            queryProduct.getListJuicesOrder(req.query.priceOrder,result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Juices`
+                });
             });
-        });
+        }
+        else if(req.query.search) {
+            queryProduct.getListJuicesSearch(req.query.search,result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Juices`
+                });
+            });
+        }
+        else {
+            queryProduct.getListJuices(result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Juices`
+                });
+            });
+        }
     }
     getFruit(req, res) {
-        queryProduct.getListFruits(result => {  
-            res.render('products', {
-                IsLoggedIn: req.session.LoggedIn,
-                username: req.session.username,
-                isStaff: req.session.isStaff,
-                totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
-                product: result,
-                title_top: `Fruits`
+        if(req.query.priceOrder) {
+            queryProduct.getListFruitsOrder(req.query.priceOrder,result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Fruits`
+                });
             });
-        });
+        }
+        else if(req.query.search) {
+            queryProduct.getListFruitsSearch(req.query.search,result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Fruits`
+                });
+            });
+        }
+        else {
+            queryProduct.getListFruits(result => {  
+                res.render('products', {
+                    IsLoggedIn: req.session.LoggedIn,
+                    username: req.session.username,
+                    isStaff: req.session.isStaff,
+                    totalCart: req.cookies.totalCart > 9 ? "9+" : req.cookies.totalCart,
+                    product: result,
+                    title_top: `Fruits`
+                });
+            });
+        }
     }
     getProduct(req, res) {
         const idProduct = req.params.id;

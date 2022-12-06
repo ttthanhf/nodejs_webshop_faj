@@ -3,10 +3,13 @@
         <h1>{{title_top}}</h1>
     </div>
     <div class="search-bar">
-        <input type="text" name="search-box" id="search-box" placeholder="Find">
+        <input type="text" name="search-box" id="search-box" placeholder="Search">
         <i class="fa-solid fa-magnifying-glass search-btn"></i>
+        <i class="fa-solid fa-arrow-up-1-9 priceAscending"></i>
+        <i class="fa-solid fa-arrow-down-9-1 priceDescending"></i>
     </div>
     <div class="product-container">
+        {{#if product}}
         {{#each product}}
         <div class="product">
             <a href="">
@@ -37,6 +40,11 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <div class="not-found" style="margin: 100px 0 270px 0;">
+            <span style="font-size: 50px; color: rgb(154, 153, 153);">Item not found</span>
+        </div>
+        {{/if}}
     </div>
 </div>
 <script src="/js/product.js"></script>

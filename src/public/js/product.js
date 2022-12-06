@@ -8,6 +8,20 @@ document.querySelectorAll(".cart-product").forEach(element => element.addEventLi
 
 document.querySelector(".search-btn").addEventListener("click", function() {
     if(document.querySelector("#search-box").value) {
-        
+        window.location = "?search=" + document.querySelector("#search-box").value
+    }
+})
+
+document.querySelector(".priceAscending").addEventListener("click", function() {
+    window.location = "?priceOrder=ASC"
+})
+document.querySelector(".priceDescending").addEventListener("click", function() {
+    window.location = "?priceOrder=DESC"
+})
+
+document.querySelector("#search-box").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.querySelector(".search-btn").click();
     }
 })
