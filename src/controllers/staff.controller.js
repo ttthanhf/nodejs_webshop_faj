@@ -4,39 +4,40 @@ const imageProducts = require('../utils/imageProducts.js');
 const queryProduct = require('../models/mysql_queryProduct.model.js');
 const queryUser = require('../models/mysql_queryUser.model.js');
 
+function option(req) {
+    return {
+        layout: 'staff-layout.hbs',
+        nameUser: req.session.username
+    }
+}
+
 class StaffController {
     get(req, res) {
-        res.render('staff', {
-            layout: 'staff-layout.hbs'
-        });
+        res.render('staff', option(req));
     }
     getProduct(req, res) {
-        res.render('staff-product', {
-            layout: 'staff-layout.hbs'
-        });
+        res.render('staff-product', option(req));
     }
     getOrder(req, res) {
-        res.render('staff-order', {
-            layout: 'staff-layout.hbs'
-        });
+        res.render('staff-order', option(req));
     }
     getCustomer(req, res) {
-        res.render('staff-customer', {
-            layout: 'staff-layout.hbs'
-        });
+        res.render('staff-customer', option(req));
     }
     listCustomer(req, res) {
         queryUser.getListCustomer(result => {
             res.render('customer-list', { 
                 layout: 'staff-layout.hbs',
-                listCustomer: result
+                listCustomer: result,
+                nameUser: req.session.username
             });
         });
     }
     getProductCreate(req, res) {
         res.render('product-create', { 
             layout: 'staff-layout.hbs',
-            listImage: imageProducts
+            listImage: imageProducts,
+            nameUser: req.session.username
         });
     }
     actionProductCreate(req, res) {
@@ -58,14 +59,16 @@ class StaffController {
                     res.render('product-create', {
                         layout: 'staff-layout.hbs',
                         successful: "Create product success!",
-                        listImage: imageProducts
+                        listImage: imageProducts,
+                        nameUser: req.session.username
                     });
                 }
                 else {
                     res.render('product-create', { 
                         layout: 'staff-layout.hbs',
                         error: "Same product already exist",
-                            listImage: imageProducts
+                        listImage: imageProducts,
+                        nameUser: req.session.username
                     });
                 }
             })
@@ -83,7 +86,8 @@ class StaffController {
         queryProduct.getListProducts(result => {
             res.render('product-change', {
                 layout: 'staff-layout.hbs',
-                listProduct: result
+                listProduct: result,
+                nameUser: req.session.username
             });
         });
     }
@@ -125,7 +129,8 @@ class StaffController {
         queryProduct.getListProducts(result => {
             res.render('product-remove', {
                 layout: 'staff-layout.hbs',
-                listProduct: result
+                listProduct: result,
+                nameUser: req.session.username
             });
         });
     }

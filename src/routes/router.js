@@ -7,6 +7,7 @@ const fruitsRouter = require('./fruits.route.js');
 const juicesRouter = require('./juices.route.js');
 const cartRouter = require('./cart.route.js');
 const staffRouter = require('./staff.route.js');
+const userRouter = require('./user.router');
 
 const authMiddleware = require('../middlewares/auth.middleware.js')
 const roleMiddleware = require('../middlewares/role.middleware.js');
@@ -21,6 +22,7 @@ function router(app) {
     app.use('/juices', juicesRouter)
     app.use('/api', apiRouter);
     app.use('/staff', roleMiddleware.authorized, staffRouter);
+    app.use('/user', authMiddleware.loggedInRequirement, userRouter)
 
     //
     app.get('/fb', (req, res) => {

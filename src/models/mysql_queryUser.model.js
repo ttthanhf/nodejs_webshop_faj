@@ -24,6 +24,9 @@ class QueryUser {
     insertCustomer(id, username, password, cookie) {  
         db.query("INSERT INTO user_account(id, username, password, role, c_user) VALUES (?,?,?,?,?)", [id ,username, password, 'customer', cookie]);
     }
+    insertProfile(id, name, address, phone) {
+        db.query("INSERT INTO user_profile(id, name, address, phone) VALUES (?,?,?,?)", [id ,name, address, phone]);
+    }
     isUserExistByUsername(username, callback) {
         db.query("SELECT * FROM user_account WHERE username = ?", [username], function(err, results) {
             if(results.length > 0) { //if have user

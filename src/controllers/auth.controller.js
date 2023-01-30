@@ -1,4 +1,4 @@
-const id = require("../utils/generateid.js");
+const idGenerator = require("../utils/generateid.js");
 const queryUser = require('../models/mysql_queryUser.model.js');
 
 function flashMessage(status, message) {
@@ -29,14 +29,19 @@ class AuthController {
         let username = req.body.username;
         let password = req.body.password;
         let retypepassword = req.body.retypepassword;
+        let name = req.body.yourname;
+        let address = req.body.address;
+        let phone = req.body.phone;
         if (username && password && retypepassword) {
             queryUser.isUserExistByUsername(username, status => {
                 if (status == false) {
                     if(retypepassword == password) {
                         //insert customer
-                        queryUser.insertCustomer(id.IdUser(), username, password, id.IdCookieUser());
-
-                        res.render('register', flashMessage('success','Register success!'));              
+                        let id = idGenerator.IdUser();
+                        queryUser.insertCustomer(id, username, password, idGenerator.IdCookieUser());
+                        queryUser.insertProfile(id, name, address, phone);
+                        res.render('register', flashMessage('success','Register success!'));  
+                                 
                     }
                     else {
                         res.render('register', flashMessage('fail','Password does not match !'));
@@ -55,6 +60,7 @@ class AuthController {
     getLogin(req, res) {
         if(req.session) {
             queryUser.getProfileById(req.session.idUser, result => {
+                console.log(req.session.idUser)
                 req.session.username = result.name;
                 queryUser.getRoleByUserId(req.session.idUser, roleUser => {
                     if(roleUser == "staff" || roleUser == "dev" || roleUser == "manager") {

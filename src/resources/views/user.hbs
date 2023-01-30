@@ -1,1 +1,41 @@
-<h1>user</h1>
+<h1>Infomation</h1>
+<div class="user-container">
+    <div class="SettingMenu">
+        <Span><a href="/user">Account</a></Span><br><br><br>
+        <span><a href="/user/order">Purchase Order</a></span>
+    </div>
+    <div class="infomation">
+        <div class="content-wrap">
+            <div class="label">
+                <div class="settingInfo">
+                    <span>Name</span><br><br>
+                    <span>Phone</span><br><br>
+                    <span>Adress</span>
+                </div>
+
+                <div class="settingPassword">
+                    <span>Old Password</span><br><br>
+                    <span>New Password</span><br><br>
+                    <span>Retype New Password</span>
+                </div>
+            </div>
+            <div class="input">
+                <div class="settingInfo">
+                    <input type="text" value="{{username}}"><br><br>
+                    <input type="text" value="{{phonenumber}}"><br><br>
+                    <input type="text" value="{{address}}"><br><br>
+                    <input type="submit" name="changeInfo" id="saveBtn" value="Save">
+                </div>
+
+                <div class="settingPassword">
+                    <span>Change password</span><br><br>
+                    <input type="password" name="oldPassword" id=""><br><br>
+                    <input type="password" name="newPassword" id=""><br><br>
+                    <input type="password" name="ReTypeNewPassword" id=""><br><br>
+                    <input type="submit" name="changePassword" id="saveBtn" value="Save">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

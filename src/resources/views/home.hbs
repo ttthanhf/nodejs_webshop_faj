@@ -1,8 +1,11 @@
-<div class="img-header slider">            
+<div class="img-header slider">
     <img src="img/banned-3.png" style="height:300px">
     <img src="img/banned-2.png" style="height:300px">
     <img src="img/banned-1.png" style="height:300px">
-</div><hr>
+</div>
+<span class="prev-arrow arrow">‹</span>
+<span class="next-arrow arrow">›</span>
+<hr>
 <div class="introduciton">
     <div class="title">
         <h1>Home</h1>
@@ -10,22 +13,38 @@
     <div class="intro">
         <p>This is a website where you can buy anything we can sell !</p>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br>
+    <div class="FruitAndJuice">
+        <div class="fruit">
+            <div class="titleFruit">
+                <a href="/fruits">Fruit:</a>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
 </div>
 <div class="main-home">
 </div>
 {{!-- script --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
+    integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/js/home.js"></script>
 <script type="text/javascript">
     $('.slider').slick({
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        dots: true,
         speed: 1500,
         autoplay: true,
-        autoplaySpeed: 1789
+        autoplaySpeed: 1789,
+        arrows: true,
+        dots: true,
+        prevArrow: $('.prev-arrow'),
+        nextArrow: $('.next-arrow')
     });
 </script>
